@@ -17,12 +17,6 @@ async def health_check(request: Request) -> JSONResponse:
     return JSONResponse({"status": "healthy", "service": "mcp-test"})
 
 
-@mcp.tool
-def get_user(user_id: int) -> dict:
-    """Look up a user in the mock database by ID."""
-    return get_user_by_id(user_id)
-
-
 
 @mcp.tool
 def get_user(
