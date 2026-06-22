@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: mcp-test
+    runtime: python
+    plan: free
+    buildCommand: pip install uv && uv sync --frozen --no-dev
+    startCommand: uv run python -m mcp_test.server
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
